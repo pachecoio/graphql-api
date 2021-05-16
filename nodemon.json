@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "app.ts",
+        "src"
+    ],
+    "ext": "ts",
+    "ignore": [
+        "src/**/*.spec.ts"
+    ],
+    "exec": "tsc && node -r dotenv/config dist/app.js"
+}

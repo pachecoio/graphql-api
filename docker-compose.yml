@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  gql_api_db:
+    image: mongo
+    # restart: always
+    container_name: gql_api_db
+    ports:
+      - 27017:27017
+    volumes:
+      - gql_api_db:/data/db
+    networks:
+      - gql_api_network
+
+  gql_api:
+    image: thisk8brd/gql_api:dev
+    build:
+      context: .
+      target: dev
+    container_name: gql_api
+    # restart: always
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - gql_api_db
+    environment:
+      - MONGODB_URI=mongodb://gql_api_db/gql_api_db
+      - NODE_ENV=development
+      - PORT=5000
+    networks:
+      - gql_api_network
+
+volumes:
+  gql_api_db:
+    name: gql_api_db
+
+networks:
+  gql_api_network:
+    name: gql_api_network
