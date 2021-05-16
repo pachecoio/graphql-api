@@ -27,6 +27,7 @@ services:
       - gql_api_db
     environment:
       - MONGODB_URI=mongodb://gql_api_db/gql_api_db
+      - SECRET=${SECRET}
       - NODE_ENV=development
       - PORT=5000
     networks:
