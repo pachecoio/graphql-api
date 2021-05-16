@@ -4,6 +4,8 @@ import UserRepository from "./user.repository";
 const repository = new UserRepository();
 
 class UserResolvers {
+
+  @auth.require()
   private getUsers(root, { query = {}, context }) {
     console.log("current context", context);
     return repository.filter(query);
@@ -13,7 +15,6 @@ class UserResolvers {
     return repository.login(input);
   }
 
-  @auth.require()
   createUser(root, { input }) {
     return repository.create(input);
   }
