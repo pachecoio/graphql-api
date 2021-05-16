@@ -19,12 +19,10 @@ export class Connection {
   }
 
   private connect(uri) {
-    console.log("Connect to db with uri ", uri);
     mongoose
       .connect(uri, options)
       // tslint:disable-next-line: only-arrow-functions
       .then(function () {
-        console.log("MongoDB is connected");
       })
       // tslint:disable-next-line: only-arrow-functions
       .catch(function (err) {

@@ -7,7 +7,6 @@ class UserResolvers {
 
   @auth.require()
   private getUsers(root, { query = {}, context }) {
-    console.log("current context", context);
     return repository.filter(query);
   }
 
