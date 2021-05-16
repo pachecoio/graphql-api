@@ -46,4 +46,4 @@ docker compose up -d
 
 You can now visit your http://localhost:5000 and check the graphql playground.
 
-You can also download (Insomnia)[https://insomnia.rest/download] and import the `insomnia_collections.json` file and you will have access to an example collection for the current implemented interfaces.
+You can also download [Insomnia](https://insomnia.rest/download) and import the `insomnia_collections.json` file and you will have access to an example collection for the current implemented interfaces.
